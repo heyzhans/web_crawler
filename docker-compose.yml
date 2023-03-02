@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+    webcrawler:
+        build: .
+        container_name: webcrawler
+        ports:
+            - 5000:5000
+        volumes:
+            - .:/app
+        depends_on:
+            - test_mongodb
+    test_mongodb:
+        image: mongo:4.4.1
+        container_name: test_mongodb
+        ports:
+            - 27017:27017
+        volumes:
+            - ./data:/data/db
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: pass
+            MONGO_INITDB_DATABASE: webcrawler

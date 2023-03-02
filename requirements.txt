@@ -1,0 +1,7 @@
+Flask
+Flask-PyMongo
+pymongo
+requests
+bs4
+lxml
+schedule
